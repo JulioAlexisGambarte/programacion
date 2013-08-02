@@ -1,0 +1,94 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "stdlib.h"
+
+#define Pi  3.1416
+
+float areaCuadrado(float lado);
+float areaTriangulo(float base, float altura);
+float areaCircunferencia(float radio);
+
+void main(void)
+{
+  int n;
+	float areac,areat,arear,radio,lado,base,altura;
+	system("color 2A");
+	do 
+	{	
+		printf("===============MENU=================\n");
+		printf("1.- Area del cuadrado \n");
+		printf("2.- Area del triangulo \n");
+		printf("3.- Area del circunferencia\n");
+		printf("0.- SALIR\n");
+	do 
+	{
+		printf("Ingrese una opcion : ");
+		scanf("%d",&n);
+
+	}while((n<0)||(n>4));
+	switch (n)
+		{
+			case 1: printf("Ingrese el lado: ");
+					scanf("%f",&lado);
+					if (lado>0)
+					{
+						areac = areaCuadrado(lado);
+						printf("El area del cuadrado : %f \n",areac);
+					}
+					else
+					printf("\n\n ----No se permiten numeros menores a 0----");
+					break;
+			case 2:	printf("Ingrese la base: ");
+					scanf("%f",&base);
+					printf("Ingrese la altura: ");
+					scanf("%f",&altura);
+					areat = areaTriangulo(base,altura);
+					printf("\n El area es : %f\n",areat);
+					break;
+			case 3:	printf ("Ingrese el radio de :   ");
+					scanf ("%f",&radio);
+					if (radio >0)
+						//Calcula el area
+						{ 
+							arear = areaCircunferencia(radio);
+							printf("\n El area es : %f\n",arear);
+						}
+					else 
+						{
+						   printf("ERROR: El radio es menor o igual a 0\n");
+						} 
+					break;
+			case 0:	
+					break;
+			default : printf("Opcion no valida\n");
+			system("cls");
+		}
+	}while(n!=0);
+	_getch();
+}
+
+float areaCuadrado(float lado)
+{	float area;
+	area = lado*lado;
+	return (area);			
+}
+float areaTriangulo(float base, float altura)
+{	float area;
+	area = (base*altura)/2;
+	return (area);			
+}
+float areaCircunferencia(float radio)
+{	float area;
+	area = Pi* radio * radio;
+	return (area);			
+}
