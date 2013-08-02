@@ -1,0 +1,77 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#define nMax 31
+
+void cargarVec(int vec[nMax],int n);
+void eliminaDupli(int V[nMax],int &n);
+void mostrarVec(int V[nMax],int n);
+void eliminaEle(int V[nMax],int &n,int posi);
+
+
+
+void main()
+{
+  int n, vec[nMax];
+	printf("Ingrese cantidad de numeros del vector : ");
+	scanf("%d",&n);
+	cargarVec(vec,n);
+	eliminaDupli(vec,n);
+	mostrarVec(vec,n);
+	_getch();
+}
+
+void cargarVec(int vec[nMax],int n)
+{
+	int i,aux;
+	//Cargar el vector de valores iniciales
+	for(i=0;i<n;i++)
+	{
+		printf("\nIngrese Vec[%d] :  ",i+1);
+		scanf("%d",&vec[i]);
+	}
+	
+}
+void eliminaDupli(int V[nMax],int &n)
+{
+	int i,j;
+	for(i=0;i<n-1;i++)
+	{
+		for(j=i+1;j<n;j++)
+		{
+			if (V[i] == V[j])
+				eliminaEle(V,n,j);
+		}
+	}
+}
+
+void mostrarVec(int V[nMax],int n)
+{
+	int i;
+	for (i = 0; i < n; i++)
+	{
+		printf("Vec[%d] => %d \n",i+1,V[i]);
+	}
+}
+
+void eliminaEle(int V[nMax],int &n,int posi)
+{
+	int j,i;
+	if (posi != n-1)
+	{
+		for (i = posi+1 ;i < n; i++)
+			V[i-1]= V[i];
+		n--;
+	}
+	else
+		n--;
+}
