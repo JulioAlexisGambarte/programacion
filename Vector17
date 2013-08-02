@@ -1,0 +1,47 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#define nMax 100
+
+
+void fibo(int vec[nMax],int n);
+
+
+void main()
+{
+  int n, vec[nMax];
+	printf("Ingrese cantidad de terminos del vector fibonacci : ");
+	scanf("%d",&n);
+	fibo(vec,n);
+	_getch();
+}
+
+
+void fibo(int vec[nMax],int n)
+{
+	int   i,ultimo,penultimo,termino;
+	vec[1] = 1;
+	vec [0] = 0;
+	if(n==1)
+		printf("%d",vec[0]);
+	else 
+	{
+		printf("vec[0]    :   %d\n vec[1]    :  %d\n ",vec[0],vec[1]);
+		for (i = 3; i <= n; i++)
+		{
+			vec[i] = vec[0] + vec[1];
+			printf("vec[%d]   :  %d\n ",i,vec[i]);
+			vec[0] = vec[1];
+			vec[1] = vec[i];
+		}
+	}
+}
