@@ -1,0 +1,38 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "math.h"
+#include "stdlib.h"
+
+void main ()
+{
+  int numero, dig, base, res, suma,i;
+	printf("Ingrese el numero a convertir : ");
+	scanf("%d",&numero);
+	printf("Ingrese la base a la que desea convertir : ");
+	scanf("%d",&base);
+	suma = 0;
+	i = 0;
+	while ( numero > 0 )
+		{
+			//dig = numero / 2;
+			dig = numero % base;
+
+			suma = suma + dig * pow(10.0,i);
+			i = i + 1;  //rxponente
+
+			numero = numero / base;
+		}
+	printf("El numero en base %d es : %d ",base ,suma);
+	getch ();
+
+}
