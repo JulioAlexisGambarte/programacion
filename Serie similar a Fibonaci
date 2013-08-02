@@ -1,0 +1,83 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "math.h"
+
+int factorial (int term);
+float potencia (float base, int term);
+float calculo (int n , float base);
+
+void main(void)
+{
+  float base,suma,termino;
+	int	n, term1, term2, term,i,signo;
+	printf("Introduzca la base :  ");
+	scanf_s("%f",&base);
+	printf("Introduzca numero de terminos :  ");
+	scanf_s("%d",&n);
+	suma = calculo(n, base);
+	/*signo = -1;
+	term1 = 0;
+	term2 = 1;
+	suma = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		term = term1 + term2;
+		termino = potencia (base,term)/factorial(term);
+		suma = suma + (signo * termino);
+		signo = signo * -1;
+		term1 = term2;
+		term2 = term;
+	}*/
+	printf("la suma de la serie es : %f ",suma);
+	_getch();
+}
+
+float calculo (int n, float base)
+{ 
+	int signo, term1, term2, term;
+	float suma, termino;
+	signo = -1;
+	term1 = 0;
+	term2 = 1;
+	suma = 0;
+	for (int i = 1; i <= n; i++)
+	{
+		term = term1 + term2;
+		termino = potencia (base,term)/factorial(term);
+		suma = suma + (signo * termino);
+		signo = signo * -1;
+		term1 = term2;
+		term2 = term;
+	}
+	return (suma);
+}
+int factorial (int term)
+{int fac;
+	fac = 1; 
+	for (int i=1; i<=term ; i++)
+	{ 
+		fac = fac * i;
+	}
+	return (fac);
+}
+
+float potencia (float base,int term)
+{int produc;
+	produc = 1;
+	for (int i = 1; i <= term; i++)
+	{
+		produc = produc * base;
+	}
+	return (produc);
+}
+
+
