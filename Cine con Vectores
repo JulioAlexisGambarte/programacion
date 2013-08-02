@@ -1,0 +1,73 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#define nMax 100
+#define precio_men 25
+#define precio_may 35
+#define costo 100
+
+void cargarVec(int V[nMax],int n);
+void imprimirInforme(int V[nMax],int n);
+
+void main()
+{
+  int n,V[nMax];
+	printf("Ingrese cantidad de asistentes : ");
+	scanf_s("%d",&n);
+	cargarVec(V,n);
+	imprimirInforme(V,n);
+	_getch();
+}
+
+void cargarVec(int V[nMax],int n)
+{
+	int i;
+	//Cargar el vector de valores iniciales
+	for(i=0;i<n;i++)
+	{
+		printf("\nEdad[%d] = ",i+1);
+		scanf_s("%d",&V[i]);
+	}
+}
+
+
+void imprimirInforme(int V[nMax],int n)
+{
+	int i,men ,may,tot;
+	//Cargar el vector de valores iniciales
+	printf("\n\n           I N F O R M E\n");
+	printf("            ===============\n\n");
+	printf("          Can      Precio       Total\n");
+	printf("          =============================\n\n");
+	men = 0;
+	may = 0;
+	for(i=0;i<n;i++)
+	{
+		if (V[i] <= 10)
+			men++;
+		else
+			may++;
+	}
+
+	printf("Menor :  %d        %d      %d\n", men , precio_men , men * precio_men);
+	printf("Mayor :  %d        %d      %d\n", may , precio_may , may * precio_may);
+	printf("------------------------------------------\n");
+	tot = men * precio_men + may * precio_may;
+	printf("                 Ingreso total : %d\n",tot);
+	printf("                   Costo total : %d\n",costo);
+	printf("------------------------------------------\n");
+	if (tot > costo)
+		printf("                     Ganancia : %d\n",tot - costo);
+	else 
+		printf("                     Perdida  : %d\n",-(tot - costo));
+
+}
