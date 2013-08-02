@@ -1,0 +1,33 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+
+#include "stdafx.h"
+#include "stdio.h"
+#include "conio.h"
+#include "math.h"
+
+void factorial (int n, int &z);
+
+void main(void)
+{
+  int   n,z; 
+	printf("Introduzca numero del que desea saber su factorial:  ");
+	scanf_s("%d",&n);
+	factorial(n,z);
+	printf("\nEl factorial es :  %d",z);
+	_getch();
+}
+void factorial (int n, int &fac)
+{
+	fac = 1;
+	for (int i=1; i<=n ; i++)
+	{ 
+		fac = fac * i;
+	}
+}
