@@ -1,0 +1,42 @@
+/****************************************************************************************
+/* materia: introduccion a la programacion                                                
+/* nombre: Julio Alexis Gambarte    								                                    
+/* fecha:  01/08/13															                                        
+/* descripcion:  saca el minimo valor de un vector de valores ya sean reales o enteros. 
+/* entrada: Tamanano de vector y elementos del vector.                                  
+/* salida: Elemento menor del vector. 				                                          
+/****************************************************************************************
+
+#include "stdafx.h"
+#include "stdio.h"  
+#include "stdlib.h"
+#include "math.h"
+
+int binario_decimal(int n);
+
+void main()
+{int num,deci;
+
+ printf("ingresar numero binario: ");
+ scanf("%d",&num);
+ 
+ deci=binario_decimal(num);
+ printf("el numero decimal es %d",deci);
+
+ system("pause");
+
+}
+
+int binario_decimal(int n)
+{int s,dig;
+ float expo;
+ s=0;
+ expo=0;
+ while(n>0)
+  {dig = n%10;
+   s = s+( pow(2,expo) * dig );
+   expo++;
+   n = (n/10);
+  }
+ return(s);
+}
